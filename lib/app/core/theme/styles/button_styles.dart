@@ -70,3 +70,7 @@ class ButtonStyles {
         fontSize: 14,
       ));
 }
+
+extension ButtonStylesExtens on BuildContext {
+  ButtonStyles get buttonStyles => ButtonStyles.i;
+}

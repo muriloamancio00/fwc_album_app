@@ -17,8 +17,8 @@ class ColorsApp {
   Color get primary => const Color(0XFF791435);
   Color get secundary => const Color(0XFFFDCE50);
   Color get yellow => const Color(0XFFFDCE50);
-  Color get gray => const Color(0XFFCCCCCC);
-  Color get grayDart => const Color(0XFF999999);
+  Color get grey => const Color(0XFFCCCCCC);
+  Color get greyDart => const Color(0XFF999999);
 }
 
 // cria a extensao das color dentro do contexto
