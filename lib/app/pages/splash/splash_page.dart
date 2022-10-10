@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fwc_album_app/app/core/theme/styles/button_styles.dart';
-import 'package:fwc_album_app/app/core/theme/styles/colors_app.dart';
-import 'package:fwc_album_app/app/core/theme/styles/text_styles.dart';
+import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
+import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
+import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
+import 'package:fwc_album_app/app/core/widgets/button.dart';
+import 'package:fwc_album_app/app/core/widgets/rounded_button.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -13,34 +15,33 @@ class SplashPage extends StatelessWidget {
       borderSide: BorderSide(color: ColorsApp.i.greyDart, width: 1),
     );
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Splash Page'),
       ),
       body: Center(
           child: Column(
         children: [
-          ElevatedButton(
-            onPressed: () {},
-            style: ButtonStyles.i.yellowButton,
-            child: Text('salvar'),
-          ),
-          OutlinedButton(
+          Button(
             onPressed: () {},
             style: ButtonStyles.i.yellowOutlineButton,
-            child: Text('salvar'),
+            labelStyle: context.textStyles.textSecundaryFontRegular,
+            label: 'salvar',
           ),
-          ElevatedButton(
+          Button.primary(
             onPressed: () {},
-            style: ButtonStyles.i.primaryButton,
-            child: Text('salvar'),
+            width: MediaQuery.of(context).size.width * .9,
+            height: 80,
+            label: 'salvar',
           ),
-          OutlinedButton(
+          const TextField(),
+          Button(
             onPressed: () {},
-            style: ButtonStyles.i.primaryOutlineButton,
-            child: Text('salvar'),
+            style: ButtonStyles.i.yellowButton,
+            labelStyle: context.textStyles.textPrimaryFontMedium,
+            label: 'salvar',
           ),
-          TextField(),
+          RoundedButton(icon: Icons.add, onPressed: () {})
         ],
       )),
     );

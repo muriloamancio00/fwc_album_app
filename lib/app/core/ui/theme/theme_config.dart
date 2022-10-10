@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fwc_album_app/app/core/theme/styles/colors_app.dart';
-import 'package:fwc_album_app/app/core/theme/styles/text_styles.dart';
+import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
+import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 
 class ThemeConfig {
   ThemeConfig._();
