@@ -69,6 +69,11 @@ class TextStyles {
   TextStyle get labelTextField => textSecundaryFontRegular.copyWith(
         color: ColorsApp.i.greyDart,
       );
+
+  TextStyle get textSecundaryFontExtraBoldPrimaryColor =>
+      textSecundaryFontExtraBoldPrimaryColor.copyWith(
+        color: ColorsApp.i.primary,
+      );
 }
 
 // cria a extensao das color dentro do contexto

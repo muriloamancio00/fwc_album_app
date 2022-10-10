@@ -23,48 +23,52 @@ class _SplashPageState extends State<SplashPage>
       borderSide: BorderSide(color: ColorsApp.i.greyDart, width: 1),
     );
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Splash Page'),
+      backgroundColor: context.colors.primary,
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/background_splash.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        //usamos a STACK para posicionar as imagens em lugares especificos
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .08),
+                child: Image.asset(
+                  'assets/images/fifa_logo.png',
+                  height: MediaQuery.of(context).size.height * .25,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 171),
+                child: Button(
+                    width: MediaQuery.of(context).size.width * .9,
+                    onPressed: () {},
+                    style: context.buttonStyles.yellowButton,
+                    labelStyle:
+                        context.textStyles.textSecundaryFontExtraBold.copyWith(
+                      color: ColorsApp.i.primary,
+                    ),
+                    label: 'Acessar'),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: Image.asset('assets/images/bandeiras.png')),
+            ),
+          ],
+        ),
       ),
-      body: Center(
-          child: Column(
-        children: [
-          Button(
-            onPressed: () async {
-              showLoader();
-
-              await Future.delayed(Duration(seconds: 3));
-              hideLoader();
-            },
-            style: ButtonStyles.i.yellowOutlineButton,
-            labelStyle: context.textStyles.textSecundaryFontRegular,
-            label: 'salvar',
-          ),
-          Button.primary(
-            onPressed: () async {
-              showSucess("Sucesso ao clicar");
-            },
-            width: MediaQuery.of(context).size.width * .9,
-            height: 80,
-            label: 'salvar',
-          ),
-          const TextField(),
-          Button(
-            onPressed: () {
-              showError("Erro no Botão Amarelo");
-            },
-            style: ButtonStyles.i.yellowButton,
-            labelStyle: context.textStyles.textPrimaryFontMedium,
-            label: 'salvar',
-          ),
-          RoundedButton(
-              icon: Icons.add,
-              onPressed: () {
-                showInfo("Botão para Adições Futuras");
-              })
-        ],
-      )),
     );
   }
 }
