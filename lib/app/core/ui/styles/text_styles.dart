@@ -74,6 +74,9 @@ class TextStyles {
       textSecundaryFontExtraBoldPrimaryColor.copyWith(
         color: ColorsApp.i.primary,
       );
+
+  TextStyle get titleWhite =>
+      textPrimaryFontBold.copyWith(fontSize: 22, color: Colors.white);
 }
 
 // cria a extensao das color dentro do contexto
