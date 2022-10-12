@@ -4,6 +4,7 @@ import 'package:fwc_album_app/app/core/rest/custom_dio.dart';
 import 'package:fwc_album_app/app/core/ui/theme/theme_config.dart';
 import 'package:fwc_album_app/app/pages/splash/home/home_page.dart';
 import 'package:fwc_album_app/app/pages/splash/login/login_page.dart';
+import 'package:fwc_album_app/app/pages/splash/register/register_page.dart';
 import 'package:fwc_album_app/app/pages/splash/presenter/splash_presenter_impl.dart';
 import 'package:fwc_album_app/app/pages/splash/splash_page.dart';
 import 'package:fwc_album_app/app/pages/splash/splash_route.dart';
@@ -29,6 +30,7 @@ class FwcAlbumApp extends StatelessWidget {
         routes: {
           '/': (_) => SplashRoute(),
           '/auth/login': (_) => const LoginPage(),
+          '/auth/register': (_) => const RegisterPage(),
           '/home': (_) => const HomePage(),
         },
       ),
