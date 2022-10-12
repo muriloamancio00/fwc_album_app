@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 import 'package:fwc_album_app/app/core/widgets/button.dart';
 import 'package:fwc_album_app/app/pages/auth/register/presenter/register_presenter.dart';
+import 'package:validatorless/validatorless.dart';
 
 class RegisterPage extends StatefulWidget {
   final RegisterPresenter presenter;
@@ -68,6 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         'Nome Completo *',
                       ),
                     ),
+                    validator: Validatorless.required('Obrigatorio'),
                   ),
                   const SizedBox(
                     height: 30,
@@ -79,6 +81,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         'E-mail *',
                       ),
                     ),
+                    validator: Validatorless.multiple([
+                      Validatorless.required('Obrigatorio'),
+                      Validatorless.email('Email Inválido'),
+                    ]),
                   ),
                   const SizedBox(
                     height: 30,
@@ -90,6 +96,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         'Senha *',
                       ),
                     ),
+                    validator: Validatorless.multiple([
+                      Validatorless.required('Obrigatorio'),
+                      Validatorless.min(
+                          6, 'senha deve conter pelo menos 6 digitos'),
+                    ]),
                   ),
                   const SizedBox(
                     height: 30,
@@ -101,12 +112,31 @@ class _RegisterPageState extends State<RegisterPage> {
                         'Confirma Senha *',
                       ),
                     ),
+                    validator: Validatorless.multiple([
+                      Validatorless.required('Obrigatorio'),
+                      Validatorless.min(
+                          6, 'senha deve conter pelo menos 6 digitos'),
+                      Validatorless.compare(
+                          passwordEC, 'Senha diferente de confirma senha')
+                    ]),
                   ),
                   const SizedBox(
                     height: 30,
                   ),
                   Button.primary(
-                    onPressed: () {},
+                    onPressed: () {
+                      final formValid =
+                          formKey.currentState?.validate() ?? false;
+
+                      if (formValid) {
+                        widget.presenter.register(
+                          name: nameEC.text,
+                          email: emailEC.text,
+                          password: passwordEC.text,
+                          password_confirmation: password_confirmationEC.text,
+                        );
+                      }
+                    },
                     label: 'Cadastrar',
                     width: MediaQuery.of(context).size.width * .9,
                   )
