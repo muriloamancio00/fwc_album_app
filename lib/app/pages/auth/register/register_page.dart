@@ -1,15 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 import 'package:fwc_album_app/app/core/widgets/button.dart';
+import 'package:fwc_album_app/app/pages/auth/register/presenter/register_presenter.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class RegisterPage extends StatefulWidget {
+  final RegisterPresenter presenter;
+  const RegisterPage({super.key, required this.presenter});
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final formKey = GlobalKey<FormState>();
+  final nameEC = TextEditingController();
+  final emailEC = TextEditingController();
+  final passwordEC = TextEditingController();
+  final password_confirmationEC = TextEditingController();
+
+  @override
+  void dispose() {
+    nameEC.dispose();
+    emailEC.dispose();
+    passwordEC.dispose();
+    password_confirmationEC.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Form(
+        key: formKey,
         child: SingleChildScrollView(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,6 +62,7 @@ class RegisterPage extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: nameEC,
                     decoration: const InputDecoration(
                       label: Text(
                         'Nome Completo *',
@@ -49,6 +73,7 @@ class RegisterPage extends StatelessWidget {
                     height: 30,
                   ),
                   TextFormField(
+                    controller: emailEC,
                     decoration: const InputDecoration(
                       label: Text(
                         'E-mail *',
@@ -59,6 +84,7 @@ class RegisterPage extends StatelessWidget {
                     height: 30,
                   ),
                   TextFormField(
+                    controller: passwordEC,
                     decoration: const InputDecoration(
                       label: Text(
                         'Senha *',
@@ -69,6 +95,7 @@ class RegisterPage extends StatelessWidget {
                     height: 30,
                   ),
                   TextFormField(
+                    controller: password_confirmationEC,
                     decoration: const InputDecoration(
                       label: Text(
                         'Confirma Senha *',
