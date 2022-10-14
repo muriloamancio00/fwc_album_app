@@ -4,8 +4,8 @@ import 'package:fwc_album_app/app/core/ui/helpers/messages.dart';
 import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
-import 'package:fwc_album_app/app/core/widgets/button.dart';
-import 'package:fwc_album_app/app/core/widgets/rounded_button.dart';
+import 'package:fwc_album_app/app/core/ui/widgets/button.dart';
+import 'package:fwc_album_app/app/core/ui/widgets/rounded_button.dart';
 import 'package:fwc_album_app/app/pages/splash/presenter/splash_presenter.dart';
 import 'package:fwc_album_app/app/pages/splash/view/splash_view_impl.dart';
 

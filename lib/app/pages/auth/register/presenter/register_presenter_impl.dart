@@ -17,18 +17,18 @@ class RegisterPresenterImpl implements RegisterPresenter {
       {required String name,
       required String email,
       required String password,
-      required String password_confirmation}) async {
+      required String confirmPassword}) async {
     final registerUserModel = RegisterUserModel(
         name: name,
         email: email,
         password: password,
-        password_confirmation: password_confirmation);
+        confirmPassword: confirmPassword);
 
     try {
       await authRepository.register(registerUserModel);
-      _view.registerSucess();
-    } catch (e) {
-      log('Erro ao cadastrar Usuario', error: e);
+      _view.registerSuccess();
+    } catch (e, s) {
+      log('Error ao cadastrar Usuario', error: e, stackTrace: s);
       _view.registerError();
     }
   }

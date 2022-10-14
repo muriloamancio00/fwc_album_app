@@ -6,34 +6,34 @@ class RegisterUserModel {
   final String name;
   final String email;
   final String password;
-  final String password_confirmation;
+  final String confirmPassword;
   RegisterUserModel({
     required this.name,
     required this.email,
     required this.password,
-    required this.password_confirmation,
+    required this.confirmPassword,
   });
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+    return {
       'name': name,
       'email': email,
       'password': password,
-      'password_confirmation': password_confirmation,
+      'password_confirmation': confirmPassword,
     };
   }
 
   factory RegisterUserModel.fromMap(Map<String, dynamic> map) {
     return RegisterUserModel(
-      name: map['name'] as String,
-      email: map['email'] as String,
-      password: map['password'] as String,
-      password_confirmation: map['password_confirmation'] as String,
+      name: map['name'] ?? '',
+      email: map['email'] ?? '',
+      password: map['password'] ?? '',
+      confirmPassword: map['password_confirmation'] ?? '',
     );
   }
 
   String toJson() => json.encode(toMap());
 
   factory RegisterUserModel.fromJson(String source) =>
-      RegisterUserModel.fromMap(json.decode(source) as Map<String, dynamic>);
+      RegisterUserModel.fromMap(json.decode(source));
 }

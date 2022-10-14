@@ -6,6 +6,6 @@ import 'app/core/config/env/env.dart';
 Future<void> main() async {
   //carregamento dos arquivos antes de startar tudo
   // ignore: await_only_futures
-  await Env.i.load;
+  await Env.i.load();
   runApp(const FwcAlbumApp());
 }

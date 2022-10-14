@@ -2,9 +2,10 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:fwc_album_app/app/core/exceptions/repository_exception.dart';
-import 'package:fwc_album_app/app/core/rest/custom_dio.dart';
+import 'package:fwc_album_app/app/core/exceptions/unauthorized_exception.dart';
 import 'package:fwc_album_app/app/models/register_user_model.dart';
 
+import '../../core/rest/custom_dio.dart';
 import './auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -28,13 +29,13 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> register(RegisterUserModel registerModel) async {
     //data: registerModel.toMap() -> gera nosso arquivo JSON como precisamos
     try {
-      await dio.unauth().post(
+      await dio.unAuth().post(
             '/api/register',
             data: registerModel.toMap(),
           );
     } on DioError catch (e, s) {
-      log('Erro ao registrar usuario', error: e, stackTrace: s);
-      throw RepositoryException(message: 'Erro ao registrar usuário');
+      log('Error registering user', error: e, stackTrace: s);
+      throw RepositoryException(message: 'Error registering user');
     }
   }
 }

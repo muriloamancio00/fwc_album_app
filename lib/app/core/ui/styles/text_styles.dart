@@ -76,10 +76,10 @@ class TextStyles {
       );
 
   TextStyle get titleWhite =>
-      textPrimaryFontBold.copyWith(fontSize: 22, color: Colors.white);
+      textPrimaryFontBold.copyWith(color: Colors.white, fontSize: 22);
 
   TextStyle get titleBlack =>
-      textPrimaryFontBold.copyWith(fontSize: 22, color: Colors.black);
+      textPrimaryFontBold.copyWith(color: Colors.black, fontSize: 22);
 }
 
 // cria a extensao das color dentro do contexto

@@ -8,10 +8,11 @@ import '../config/env/env.dart';
 class CustomDio extends DioForNative {
   CustomDio()
       : super(BaseOptions(
-            baseUrl: Env.i['backend_base_url'] ?? '',
-            //tempo para chegar ate o backend
-            connectTimeout: 5000,
-            receiveTimeout: 60000)) {
+          baseUrl: Env.i['backend_base_url'] ?? '',
+          //tempo para chegar ate o backend
+          connectTimeout: 5000,
+          receiveTimeout: 60000,
+        )) {
     interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
   }
 
@@ -19,7 +20,7 @@ class CustomDio extends DioForNative {
     return this;
   }
 
-  CustomDio unauth() {
+  CustomDio unAuth() {
     return this;
   }
 }

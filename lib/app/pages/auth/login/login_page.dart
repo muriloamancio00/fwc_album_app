@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
-import 'package:fwc_album_app/app/core/widgets/button.dart';
+import 'package:fwc_album_app/app/core/ui/widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

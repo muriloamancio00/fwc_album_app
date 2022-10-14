@@ -8,6 +8,6 @@ abstract class RegisterPresenter extends FwcPresenter<RegisterView> {
     required String name,
     required String email,
     required String password,
-    required String password_confirmation,
+    required String confirmPassword,
   });
 }
