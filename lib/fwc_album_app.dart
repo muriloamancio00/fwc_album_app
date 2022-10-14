@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:fwc_album_app/app/core/rest/custom_dio.dart';
 import 'package:fwc_album_app/app/core/ui/theme/theme_config.dart';
+import 'package:fwc_album_app/app/pages/auth/login/login_route.dart';
 import 'package:fwc_album_app/app/pages/auth/register/register_route.dart';
 import 'package:fwc_album_app/app/pages/splash/home/home_page.dart';
 import 'package:fwc_album_app/app/pages/auth/login/login_page.dart';
@@ -30,8 +31,7 @@ class FwcAlbumApp extends StatelessWidget {
         theme: ThemeConfig.theme,
         routes: {
           '/': (_) => SplashRoute(),
-          '/auth/login': (_) => const LoginPage(),
-          //agora RegisterPage precisa ser uma rota do getit
+          '/auth/login': (_) => const LoginRoute(),
           '/auth/register': (_) => const RegisterRoute(),
           '/home': (_) => const HomePage(),
         },

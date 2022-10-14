@@ -13,10 +13,31 @@ class AuthRepositoryImpl implements AuthRepository {
 
   AuthRepositoryImpl({required this.dio});
 
+  //camada responsavel por receber os metodos do backend
   @override
-  Future<String> login({required String email, required password}) {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<String> login({required String email, required password}) async {
+    try {
+      final result = await dio.post('/api/auth', data: {
+        'email': email,
+        'password': password,
+      });
+
+      final accessToken = result.data['acess_token'];
+
+      if (accessToken == null) {
+        throw UnauthorizedException();
+      }
+
+      //caminho feliz recebendo o token do backend
+      return accessToken;
+    } on DioError catch (e, s) {
+      log('Erro ao realizar login', error: e, stackTrace: s);
+      //401 é o acesso negado
+      if (e.response?.statusCode == 401) {
+        throw UnauthorizedException();
+      }
+      throw RepositoryException(message: 'Erro ao realizar login');
+    }
   }
 
   @override
